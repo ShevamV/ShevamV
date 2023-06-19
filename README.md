@@ -7,7 +7,7 @@
 I am currently working on creating a langauge for terminal.
 - I want to be a backend-frontend developer.
 - I have a website https://shevamv-website.web.app and give some development ideas...
-
+- I want to Create a ```CharBot``` like ```openai/ChatGPT```
 <!---
 ShevamV/ShevamV is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 You can click the Preview link to take a look at your changes.
