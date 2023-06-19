@@ -8,10 +8,8 @@ I am currently working on creating a langauge for terminal.
 - I want to be a backend-frontend developer.
 - I have a website https://shevamv-website.web.app and give some development ideas...
 - I want to Create a ```ChatBot``` like ```openai/ChatGPT```
-- This is ShevamV, the Developer...
-You can contact me with ```Vermans.svr@gmail.com```
 I am an Indian Backend-Frontend developer.
-I am good at {
+I am good at
 <li> Web Development </li>
 <li> Android apps </li>
 <li> Python </li>
