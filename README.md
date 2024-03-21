@@ -5,7 +5,7 @@
 I am currently working on creating a langauge for terminal.
 - I want to be a backend-frontend developer.
 - I have a website https://shevamv-website.web.app and give some development ideas...
-- I Dreams are to build```Advance AI-ML projects, own Operating System and own Programming Language..```.
+- I Dreams are to build```Advance AI-ML projects```, ```own Operating System``` and ```own Programming Language..```.
 I am good at
 <li> Web Development </li>
 <li> Android apps </li>
