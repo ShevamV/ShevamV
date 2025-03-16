@@ -1,17 +1,283 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ShevamV</title>
-    <link rel="stylesheet" href="style.css">
+    <title>ShevamV | Developer & Designer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6C63FF;
+            --background: #ffffff;
+            --text: #2d2d2d;
+            --nav-bg: rgba(255, 255, 255, 0.8);
+        }
+
+        [data-theme="dark"] {
+            --primary: #8A85FF;
+            --background: #1a1a1a;
+            --text: #ffffff;
+            --nav-bg: rgba(26, 26, 26, 0.8);
+        }
+    .cursor {
+        position: fixed;
+        width: 40px;
+        height: 40px;
+        border: 2px solid var(--primary);
+        border-radius: 50%;
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+        backdrop-filter: invert(1);
+        mix-blend-mode: difference;
+        z-index: 9999;
+        transition: all 0.7s ease, transform 0.6s ease;
+    }
+
+    .cursor.hovered {
+        transform: translate(-50%, -50%) scale(1.5);
+        background: var(--primary);
+        opacity: 0.5;
+    }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            background: var(--nav-bg);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text);
+            font-size: 1.2rem;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            background: linear-gradient(45deg, var(--primary) 0%, transparent 100%);
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--primary), #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .about {
+            padding: 8rem 5%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-card {
+            background: rgba(108, 99, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .interests {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .interest-card {
+            padding: 2rem;
+            border-radius: 15px;
+            background: rgba(108, 99, 255, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .interest-card:hover {
+            transform: translateY(-5px);
+        }
+
+        @media (max-width: 768px) {
+            .about {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+        }
+    </style>
 </head>
-
 <body>
-<h1 align="center">Site Under Construction 🚧 🏗️ </h1>
-    <script src="script.js"></script>
-</body>
+    <div class="cursor"></div>
+    <nav class="navbar">
+        <div class="logo">ShevamV</div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#interests">Interests</a>
+        </div>
+        <button class="theme-toggle" id="theme-toggle">
+            <i class="fas fa-moon"></i>
+        </button>
+    </nav>
 
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Developer & Designer</h1>
+            <p>Turning ideas into digital reality through code and design.</p>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div>
+            <h2>About Me</h2>
+            <p>A passionate developer and designer with expertise in multiple programming languages and design tools. Blending technical skills with creative vision to build impactful digital experiences.</p>
+        </div>
+        <div class="profile-image">
+            <!-- Add your profile image here -->
+            <div style="width: 300px; height: 300px; background: var(--primary); border-radius: 50%;"></div>
+        </div>
+    </section>
+
+    <section class="skills" id="skills">
+        <div class="container">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Python</h3>
+                    <div class="skill-bar">
+                        <div class="progress" style="width: 90%"></div>
+                    </div>
+                </div>
+                <!-- Add other skills similarly -->
+            </div>
+        </div>
+    </section>
+
+    <section class="interests" id="interests">
+        <h2>Passions Beyond Code</h2>
+        <div class="interests-grid">
+            <div class="interest-card">
+                <h3>Music Production</h3>
+                <p>Creating ambient electronic music and acoustic guitar compositions</p>
+            </div>
+            <div class="interest-card">
+                <h3>Guitar</h3>
+                <p>10 years experience in classical and fingerstyle guitar</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        alert("! This Site is under Construction... 🚧🏗")
+        const cursor = document.querySelector('.cursor');
+    
+    // Follow mouse movement
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = `${e.clientX}px`;
+        cursor.style.top = `${e.clientY}px`;
+    });
+
+    // Hover effects
+    document.querySelectorAll('a, button, .interest-card').forEach(element => {
+        element.addEventListener('mouseenter', () => {
+            cursor.classList.add('hovered');
+        });
+        element.addEventListener('mouseleave', () => {
+            cursor.classList.remove('hovered');
+        });
+    });
+
+    // Click animation
+    document.addEventListener('mousedown', () => {
+        cursor.style.transform = `translate(-50%, -50%) scale(0.8)`;
+    });
+    document.addEventListener('mouseup', () => {
+        cursor.style.transform = `translate(-50%, -50%) scale(1)`;
+    });
+
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        themeToggle.addEventListener('click', () => {
+            body.setAttribute('data-theme', 
+                body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'
+            );
+        });
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Progress bar animation
+        window.addEventListener('scroll', () => {
+            document.querySelectorAll('.progress').forEach(progress => {
+                const rect = progress.getBoundingClientRect();
+                if(rect.top < window.innerHeight) {
+                    progress.style.width = progress.style.width;
+                }
+            });
+        });
+    </script>
+</body>
 </html>
