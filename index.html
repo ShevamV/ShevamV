@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -62,31 +63,33 @@
 
         .navbar {
             position: fixed;
-            top: 20px;
-            left: 5%;
-            right: 5%;
-            width: 90%;
-            padding: 1.2rem 2.5%;
+            top: 15px;
+            left: 2%;
+            right: 2%;
+            width: 96%;
+            padding: 1rem 3%;
+            border-radius: 16px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             backdrop-filter: blur(10px);
             background: var(--nav-bg);
-            border-radius: 20px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
             z-index: 1000;
             transition: all 0.3s ease;
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
+
         [data-theme="dark"] .navbar {
             box-shadow: 0 8px 32px rgba(108, 99, 255, 0.1);
             border: 1px solid rgba(108, 99, 255, 0.1);
         }
+
         .nav-links {
             display: flex;
             gap: 2rem;
             align-items: center;
-            transition: right 0.3s ease-out;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .hamburger {
@@ -98,23 +101,51 @@
             font-size: 1.5rem;
         }
 
+        @media (max-width: 480px) {
+            .navbar {
+                left: 1%;
+                right: 1%;
+                width: 98%;
+                border-radius: 12px;
+            }
+
+            .nav-links.active {
+                right: 1%;
+                width: 98%;
+                padding: 1rem;
+            }
+
+            .nav-links a {
+                font-size: 0.9rem;
+            }
+        }
+
         @media (max-width: 768px) {
             .navbar {
                 top: 10px;
-                left: 3%;
-                right: 3%;
-                width: 94%;
-                padding: 1rem 3%;
+                left: 2%;
+                right: 2%;
+                width: 96%;
+                padding: 0.8rem 3%;
+                border-radius: 14px;
             }
+
             .nav-links.active {
-                border-radius: 15px;
-                top: 80px;
-                right: 3%;
-                width: 94%;
+                top: 70px;
+                right: 2%;
+                width: 96%;
+                border-radius: 12px;
+                padding: 1.5rem;
             }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
             .hamburger {
                 display: block;
             }
+
             .about {
                 grid-template-columns: 1fr;
             }
@@ -135,6 +166,19 @@
                 padding: 2rem;
                 text-align: center;
                 gap: 1.5rem;
+            }
+
+            .nav-links a {
+                font-size: 0.95rem;
+            }
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+            .cursor {
+                display: none !important;
+            }
+            body{
+                cursor: default !important;
             }
         }
 
@@ -186,22 +230,58 @@
         }
 
         .skills {
-            padding: 8rem 5%;
+            padding: 4rem 5%;
+            padding-top:0;
         }
-
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
             margin-top: 2rem;
         }
-
+        
         .skill-card {
-            background: rgba(108, 99, 255, 0.1);
-            padding: 2rem;
+            background: rgba(108, 99, 255, 0.05);
+            padding: 1.5rem;
             border-radius: 15px;
-            text-align: center;
+            transition: all 0.3s ease;
         }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .interest-icon {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 6rem;
+            color: var(--primary);
+            opacity: 0.8;
+            transform: rotate(15deg);
+            transition: all 0.4s ease;
+        }
+        
+        .skill-card:hover .interest-icon {
+            transform: rotate(-5deg) translateY(-20px);
+            opacity: 1;
+        }
+        
+        .interest-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(45deg, var(--primary), #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .interest-content p {
+            font-size: 0.95rem;
+            color: var(--text);
+            opacity: 0.9;
+        }
+
         .interest-card {
             position: relative;
             padding: 2rem;
@@ -210,12 +290,12 @@
             transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
             overflow: hidden;
         }
-    
+
         .interest-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
         }
-    
+
         .interest-banner {
             position: absolute;
             top: 0;
@@ -226,7 +306,7 @@
             clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%);
             opacity: 0.1;
         }
-    
+
         .interest-image {
             width: 120px;
             height: 120px;
@@ -237,17 +317,37 @@
             transition: all 0.4s ease;
             opacity: 0.8;
         }
-    
+
         .interest-card:hover .interest-image {
             transform: rotate(-5deg) translateY(-20px);
             opacity: 1;
         }
-    
+
         .interest-content {
             position: relative;
             z-index: 1;
         }
-    
+
+        .interest-icon {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 6rem;
+            color: var(--primary);
+            opacity: 0.8;
+            transform: rotate(15deg);
+            transition: all 0.4s ease;
+            background: linear-gradient(45deg, var(--primary), #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .interest-card:hover .interest-icon {
+            transform: rotate(-5deg) translateY(-20px);
+            opacity: 1;
+            color: var(--primary);
+        }
+
         .interest-card h3 {
             font-size: 1.5rem;
             margin-bottom: 1rem;
@@ -255,7 +355,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-    
+
         /* Add shimmer effect on hover */
         .interest-card::after {
             content: '';
@@ -264,25 +364,69 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: linear-gradient(45deg, 
-                transparent, 
-                rgba(255,255,255,0.1), 
-                transparent);
+            background: linear-gradient(45deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.1),
+                    transparent);
             transform: rotate(45deg);
             transition: all 0.5s;
             pointer-events: none;
         }
-    
+
         .interest-card:hover::after {
             animation: shimmer 1.5s;
         }
-    
-        @keyframes shimmer {
-            0% { transform: translateX(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) rotate(45deg); }
+
+        .interest-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 0.5rem 0;
         }
+
+        .interest-content li {
+            position: relative;
+            padding-left: 1.2rem;
+            margin: 0.3rem 0;
+        }
+
+        .interest-content li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 6px;
+            height: 6px;
+            background: var(--primary);
+            border-radius: 50%;
+        }
+
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%) rotate(45deg);
+            }
+
+            100% {
+                transform: translateX(100%) rotate(45deg);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
         .interests {
-            padding: 8rem 5%;
+            padding: 4rem 5%;
+            padding-top: 0;
         }
 
         .interests-grid {
@@ -297,6 +441,7 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -308,8 +453,13 @@
             animation: fadeIn 0.6s ease forwards;
         }
 
-        .fade-in.delay-1 { animation-delay: 0.2s; }
-        .fade-in.delay-2 { animation-delay: 0.4s; }
+        .fade-in.delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .fade-in.delay-2 {
+            animation-delay: 0.4s;
+        }
 
         @media (prefers-reduced-motion: reduce) {
             .fade-in {
@@ -317,20 +467,82 @@
                 opacity: 1;
             }
         }
+
         .sparkle {
             position: absolute;
             width: 100px;
             height: 100px;
             animation: sparkle 2s infinite;
         }
-        
+
         @keyframes sparkle {
-            0% { opacity: 0; transform: scale(0); }
-            50% { opacity: 1; transform: scale(1); }
-            100% { opacity: 0; transform: scale(0); }
+            0% {
+                opacity: 0;
+                transform: scale(0);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            100% {
+                opacity: 0;
+                transform: scale(0);
+            }
+        }
+        .footer {
+            background: rgba(108, 99, 255, 0.05);
+            padding: 3rem 5%;
+            margin-top: 4rem;
+            border-top: 1px solid rgba(108, 99, 255, 0.1);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .footer-section p {
+            font-size: 0.95rem;
+            color: var(--text);
+            opacity: 0.9;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            color: var(--text);
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--primary);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(108, 99, 255, 0.1);
+            font-size: 0.9rem;
+            color: var(--text);
+            opacity: 0.8;
         }
     </style>
 </head>
+
 <body>
     <div class="cursor"></div>
     <nav class="navbar">
@@ -358,7 +570,8 @@
     <section class="about fade-in" data-delay="0.2s" id="about">
         <div>
             <h2>About Me</h2>
-            <p>A passionate developer and designer with expertise in multiple programming languages and design tools. Blending technical skills with creative vision to build impactful digital experiences.</p>
+            <p>A passionate developer and designer with expertise in multiple programming languages and design tools.
+                Blending technical skills with creative vision to build impactful digital experiences.</p>
         </div>
         <div class="profile-image">
             <div style="width: 300px; height: 300px; background: var(--primary); border-radius: 50%;"></div>
@@ -370,80 +583,62 @@
             <h2>Technical Skills</h2>
             <div class="skills-grid">
                 <!-- Python -->
-                <div class="skill-card">
-                    <div class="skill-header">
-                        <div class="skill-icon">
-                            <i class="fab fa-python"></i>
-                        </div>
+                <div class="skill-card interest-card">
+                    <div class="interest-banner"></div>
+                    <i class="fab fa-python interest-icon"></i>
+                    <div class="interest-content">
                         <h3>Python</h3>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="progress" style="width: 90%"></div>
+                        <p>Advanced proficiency in Python for web development, automation, and data analysis.</p>
                     </div>
                 </div>
-
+    
                 <!-- C/C++ -->
-                <div class="skill-card">
-                    <div class="skill-header">
-                        <div class="skill-icon">
-                            <i class="fas fa-microchip"></i>
-                        </div>
+                <div class="skill-card interest-card">
+                    <div class="interest-banner"></div>
+                    <i class="fas fa-microchip interest-icon"></i>
+                    <div class="interest-content">
                         <h3>C & C++</h3>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="progress" style="width: 88%"></div>
+                        <p>Strong foundation in C/C++ for system programming and performance-critical applications.</p>
                     </div>
                 </div>
     
                 <!-- Java -->
-                <div class="skill-card">
-                    <div class="skill-header">
-                        <div class="skill-icon">
-                            <i class="fab fa-java"></i>
-                        </div>
+                <div class="skill-card interest-card">
+                    <div class="interest-banner"></div>
+                    <i class="fab fa-java interest-icon"></i>
+                    <div class="interest-content">
                         <h3>Java</h3>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="progress" style="width: 82%"></div>
+                        <p>Experience in Java for enterprise applications and Android development.</p>
                     </div>
                 </div>
     
                 <!-- MERN Stack -->
-                <div class="skill-card">
-                    <div class="skill-header">
-                        <div class="skill-icon">
-                            <i class="fab fa-react"></i>
-                        </div>
+                <div class="skill-card interest-card">
+                    <div class="interest-banner"></div>
+                    <i class="fab fa-react interest-icon"></i>
+                    <div class="interest-content">
                         <h3>MERN Stack</h3>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="progress" style="width: 85%"></div>
+                        <p>Full-stack development with MongoDB, Express, React, and Node.js.</p>
                     </div>
                 </div>
     
                 <!-- Node.js -->
-                <div class="skill-card">
-                    <div class="skill-header">
-                        <div class="skill-icon">
-                            <i class="fab fa-node-js"></i>
-                        </div>
+                <div class="skill-card interest-card">
+                    <div class="interest-banner"></div>
+                    <i class="fab fa-node-js interest-icon"></i>
+                    <div class="interest-content">
                         <h3>Node.js</h3>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="progress" style="width: 89%"></div>
+                        <p>Building scalable backend systems and APIs with Node.js.</p>
                     </div>
                 </div>
     
                 <!-- Web Technologies -->
-                <div class="skill-card">
-                    <div class="skill-header">
-                        <div class="skill-icon">
-                            <i class="fas fa-globe"></i>
-                        </div>
+                <div class="skill-card interest-card">
+                    <div class="interest-banner"></div>
+                    <i class="fas fa-globe interest-icon"></i>
+                    <div class="interest-content">
                         <h3>Web Technologies</h3>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="progress" style="width: 92%"></div>
+                        <p>Proficient in HTML, CSS, JavaScript, and modern web frameworks.</p>
                     </div>
                 </div>
             </div>
@@ -453,62 +648,99 @@
     <section class="interests fade-in" data-delay="0.6s" id="interests">
         <h2>Passions Beyond Code</h2>
         <div class="interests-grid">
+
             <div class="interest-card">
                 <div class="interest-banner"></div>
-                <img src="https://www.svgrepo.com/show/271109/guitar.svg" 
-                     alt="Music" 
-                     class="interest-image">
+                <i class="fas fa-guitar interest-icon"></i>
                 <div class="interest-content">
-                    <h3>Music Production</h3>
-                    <p>Creating ambient electronic music and acoustic guitar compositions</p>
-                    <div class="sparkles">
-                        <!-- Add animated sparkles SVG here -->
-                        <svg viewBox="0 0 100 100" class="sparkle">
-                            <!-- SVG paths for sparkle effect -->
-                        </svg>
-                    </div>
+                    <h3>Guitar</h3>
+                    <p>15 years experience in classical and fingerstyle guitar</p>
                 </div>
             </div>
+
             <div class="interest-card">
-                <h3>Guitar</h3>
-                <p>15 years experience in classical and fingerstyle guitar</p>
+                <div class="interest-banner"></div>
+                <i class="fas fa-music interest-icon"></i>
+                <div class="interest-content">
+                    <h3>Piano</h3>
+                    <p>Classical Piano, Movie, HipHop, Etc...</p>
+                </div>
             </div>
+
             <div class="interest-card">
-                <h3>Piano</h3>
-                <p>Classical Piano, Movie, HipHop, Etc...</p>
+                <div class="interest-banner"></div>
+                <i class="fas fa-palette interest-icon"></i>
+                <div class="interest-content">
+                    <h3>Designing</h3>
+                    <p>Graphic Designing, Illustration, Editing, 3D Modeling, etc...</p>
+                </div>
             </div>
+
             <div class="interest-card">
-                <h3>Designing</h3>
-                <p>Graphic Designing, Illustration, Editing, 3D Modeling, etc...</p>
+                <div class="interest-banner"></div>
+                <i class="fas fa-paint-brush interest-icon"></i>
+                <div class="interest-content">
+                    <h3>Painting</h3>
+                    <p>WAS Great at Painting, Drawing Architecture, etc (now depreciated*)</p>
+                </div>
             </div>
+
             <div class="interest-card">
-                <h3>Painting</h3>
-                <p>WAS Great at Painting, Drawing Architecture, etc(now depreciated*)</p>
-            </div>
-            <div class="interest-card">
-                <h3>Languages</h3>
-                <p>Have Knowledge in Languages, such as:
+                <div class="interest-banner"></div>
+                <i class="fas fa-language interest-icon"></i>
+                <div class="interest-content">
+                    <h3>Languages</h3>
+                    <p>Have Knowledge in Languages, such as:</p>
                     <ul>
                         <li>English</li>
-                        <li>Spanish(Main)</li>
-                        <li>Hindi(Learning)</li>
+                        <li>Spanish (Main)</li>
+                        <li>Hindi (Learning)</li>
                     </ul>
-                </p>
+                </div>
             </div>
+
             <div class="interest-card">
-                <h3>Cryptography</h3>
-                <p>Knowledge in Cryptography, Security, Data Transmission, etc</p>
+                <div class="interest-banner"></div>
+                <i class="fas fa-lock interest-icon"></i>
+                <div class="interest-content">
+                    <h3>Cryptography</h3>
+                    <p>Knowledge in Cryptography, Security, Data Transmission, etc</p>
+                </div>
             </div>
+
             <div class="interest-card">
-                <h3>CyberSecurity</h3>
-                <p>Interests in Cybersecurity, Privacy, etc...</p>
+                <div class="interest-banner"></div>
+                <i class="fas fa-shield-alt interest-icon"></i>
+                <div class="interest-content">
+                    <h3>CyberSecurity</h3>
+                    <p>Interests in Cybersecurity, Privacy, etc...</p>
+                </div>
             </div>
         </div>
     </section>
 
+    <footer class="footer fade-in" data-delay="0.6s">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About This Site</h3>
+                <p>Designed and developed with ❤ by ShevamV</p>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Me</h3>
+                <div class="social-links">
+                    <a href="http://github.com/shevamv" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <!-- <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a> -->
+                    <!-- <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a> -->
+                    <a href="mailto://vermans.svr@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 ShevamV. All rights reserved.</p>
+        </div>
+    </footer>
+
     <script>
-        console.log("I See You.......👁👀😄")
-        alert("This Site is Under Construction...🚧🏗")
         // Theme Toggle
         const themeToggle = document.getElementById('theme-toggle');
         const body = document.body;
@@ -531,8 +763,8 @@
         hamburger.addEventListener('click', (e) => {
             e.stopPropagation();
             navLinks.classList.toggle('active');
-            hamburger.innerHTML = navLinks.classList.contains('active') ? 
-                '<i class="fas fa-times"></i>' : 
+            hamburger.innerHTML = navLinks.classList.contains('active') ?
+                '<i class="fas fa-times"></i>' :
                 '<i class="fas fa-bars"></i>';
         });
 
@@ -545,7 +777,7 @@
 
         // Smooth Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
